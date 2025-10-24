@@ -5,104 +5,180 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     padding: 20px;
 }
 
 .container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.stats {
+    opacity: 0.9;
+    font-size: 1.1em;
 }
 
 .input-section {
+    padding: 30px;
     display: flex;
-    margin-bottom: 20px;
+    gap: 15px;
 }
 
 #taskInput {
     flex: 1;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
     font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#taskInput:focus {
+    outline: none;
+    border-color: #4facfe;
 }
 
 #addBtn {
-    padding: 10px 20px;
-    margin-left: 10px;
-    background: #007bff;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.2s;
 }
 
 #addBtn:hover {
-    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.filter-section {
+    padding: 0 30px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid #e1e8ed;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: #4facfe;
+    color: white;
+    border-color: #4facfe;
 }
 
 #taskList {
     list-style: none;
+    padding: 0 30px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .task-item {
-    background: #f8f9fa;
+    background: white;
     margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 15px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.task-item:hover {
+    transform: translateX(5px);
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.task-item.completed .task-checkbox {
+    background: #4facfe;
+    border-color: #4facfe;
 }
 
 .task-text {
     flex: 1;
+    font-size: 16px;
+    transition: all 0.3s;
 }
 
 .task-item.completed .task-text {
     text-decoration: line-through;
-    color: #6c757d;
-}
-
-.task-actions {
-    display: flex;
-    gap: 10px;
-}
-
-.complete-btn, .delete-btn {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.complete-btn {
-    background: #28a745;
-    color: white;
-}
-
-.complete-btn:hover {
-    background: #1e7e34;
+    color: #999;
 }
 
 .delete-btn {
-    background: #dc3545;
+    background: #ff6b6b;
     color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .delete-btn:hover {
-    background: #c82333;
+    background: #ff5252;
+}
+
+.actions {
+    padding: 20px 30px;
+    text-align: center;
+}
+
+#clearCompleted {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+#clearCompleted:hover {
+    background: #ff5252;
+}
+
+.hidden {
+    display: none;
 }
