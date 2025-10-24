@@ -145,14 +145,32 @@ h1 {
     color: #999;
 }
 
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn, .delete-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.edit-btn {
+    background: #4facfe;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #3a8bfd;
+}
+
 .delete-btn {
     background: #ff6b6b;
     color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background 0.3s;
 }
 
 .delete-btn:hover {

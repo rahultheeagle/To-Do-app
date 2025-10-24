@@ -60,6 +60,18 @@ class TodoApp {
         this.render();
     }
 
+    editTask(id) {
+        const task = this.tasks.find(t => t.id === id);
+        if (task) {
+            const newText = prompt('Edit task:', task.text);
+            if (newText && newText.trim()) {
+                task.text = newText.trim();
+                this.saveTasks();
+                this.render();
+            }
+        }
+    }
+
     clearCompletedTasks() {
         this.tasks = this.tasks.filter(t => !t.completed);
         this.saveTasks();
@@ -88,8 +100,11 @@ class TodoApp {
         this.taskList.innerHTML = filteredTasks.map(task => `
             <li class="task-item ${task.completed ? 'completed' : ''}">
                 <div class="task-checkbox" onclick="app.toggleTask(${task.id})"></div>
-                <span class="task-text">${task.text}</span>
-                <button class="delete-btn" onclick="app.deleteTask(${task.id})">×</button>
+                <span class="task-text" ondblclick="app.editTask(${task.id})">${task.text}</span>
+                <div class="task-actions">
+                    <button class="edit-btn" onclick="app.editTask(${task.id})">✏️</button>
+                    <button class="delete-btn" onclick="app.deleteTask(${task.id})">×</button>
+                </div>
             </li>
         `).join('');
 
